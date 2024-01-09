@@ -1,0 +1,14 @@
+.home-slide {
+  height: 500px;
+}
+
+.home-card {
+  width: 275px;
+}
+
+.cart-badge {
+  height: 20px;
+  position: relative;
+  left: -17px;
+  top: -2p;
+}
