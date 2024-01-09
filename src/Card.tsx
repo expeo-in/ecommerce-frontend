@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Product from "./models/Product";
 import useCartStore from "./cart.store";
 import { useToast } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = (props: any) => {
   const p: Product = props.product;
@@ -10,6 +10,7 @@ const Card = (props: any) => {
   const qtyRef = useRef<HTMLInputElement>(null);
   const { addCartItem } = useCartStore();
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (qtyRef.current != null) {
@@ -28,6 +29,11 @@ const Card = (props: any) => {
         isClosable: true,
       });
     }
+  };
+
+  const handleBuy = () => {
+    handleClick();
+    navigate("/cart");
   };
 
   return (
@@ -49,8 +55,11 @@ const Card = (props: any) => {
           <span className="d-inline-block">In Stock - {p.qty}</span>
         </h6>
         <input type="number" value={1} min={1} ref={qtyRef}></input>
-        <button className="btn btn-primary" onClick={handleClick}>
+        <button className="btn btn-primary me-3" onClick={handleClick}>
           Add to Cart
+        </button>
+        <button className="btn btn-primary" onClick={handleBuy}>
+          Buy Now
         </button>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <div className="container">
       <header>
-        <div className="d-flex flex-column flex-md-row justify-content-between">
+        <div className="d-flex flex-column flex-md-row justify-content-between pt-3">
           <h1>Ecommerce Website</h1>
           <div className="d-flex flex-row">
             <Link to="/cart">
